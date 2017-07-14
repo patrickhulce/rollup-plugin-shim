@@ -78,7 +78,7 @@ describe('index.js', () => {
           expect(code).to.contain('return 5') // depended swapped
           expect(code).to.not.contain('return 100') // depended original
 
-          const result = eval(code)
+          const result = eval(code) // eslint-disable-line no-eval
           expect(result).to.eql(18)
         })
     })
@@ -99,7 +99,7 @@ describe('index.js', () => {
           const code = generated.code
           fs.writeFileSync(fixture('out/node.js'), code)
 
-          const result = eval(code)
+          const result = eval(code) // eslint-disable-line no-eval
           expect(result).to.eql(18)
         })
     })
