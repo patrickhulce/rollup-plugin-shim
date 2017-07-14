@@ -4,6 +4,7 @@ cache: yarn
 notifications:
   email: false
 node_js:
+  - v8
   - v7
   - v6
 before_install:
