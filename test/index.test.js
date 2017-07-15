@@ -6,6 +6,12 @@ const commonjs = require('rollup-plugin-commonjs')
 const shim = require('../lib')
 
 const fixture = filePath => path.join(__dirname, `fixtures/${filePath}`)
+const saveActual = (filePath, content) => {
+  const folderPath = path.dirname(filePath)
+  if (fs.existsSync(folderPath)) {
+    fs.writeFileSync(filePath, content)
+  }
+}
 
 describe('index.js', () => {
   describe('#shim', () => {
@@ -71,7 +77,8 @@ describe('index.js', () => {
         .then(bundle => bundle.generate({format: 'cjs'}))
         .then(generated => {
           const code = generated.code
-          fs.writeFileSync(fixture('out/es6.js'), code)
+          saveActual(fixture('out/es6.js'), code)
+
           expect(code).to.contain('named = 10')
           expect(code).to.contain('itemA = 1')
           expect(code).to.contain('itemB = 2')
@@ -97,7 +104,7 @@ describe('index.js', () => {
         .then(bundle => bundle.generate({format: 'cjs'}))
         .then(generated => {
           const code = generated.code
-          fs.writeFileSync(fixture('out/node.js'), code)
+          saveActual(fixture('out/node.js'), code)
 
           const result = eval(code) // eslint-disable-line no-eval
           expect(result).to.eql(18)
