@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-shim",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "Plugin for rollup to provide a shim implementation for a module.",
   "main": "./lib/index.js",
   "scripts": {
