@@ -15,7 +15,7 @@ Plugin for rollup to provide a shim implementation for a module. Replaces requir
 
 ### Shim
 
-**main.js**
+**src/main.js**
 
 ```js
 import {writeFileSync} from 'fs'
@@ -33,7 +33,7 @@ import {join} from 'path'
 import shim from 'rollup-plugin-shim'
 
 export default {
-  entry: 'main.js',
+  entry: 'src/main.js',
   plugins: [
     shim({
       // replace fs with a noop shim
