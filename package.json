@@ -34,7 +34,7 @@
     "nyc": "^11.0.3",
     "rollup": "^0.45.2",
     "rollup-plugin-commonjs": "^8.0.2",
-    "semantic-release": "^6.3.6",
+    "semantic-release": "^17.2.3",
     "sinon": "^2.3.8",
     "sinon-chai": "^2.11.0"
   }
